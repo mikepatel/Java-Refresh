@@ -19,8 +19,13 @@ public class ExampleDialog {
 //        JOptionPane.showMessageDialog(jFrame, "Not null");  // center of jFrame
 //        JOptionPane.showMessageDialog(null, "null");  // center of screen
 
-        Date today = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat();
-        JOptionPane.showMessageDialog(jFrame, sdf.format(today));
+        // display datetime information
+//        Date today = new Date();
+//        SimpleDateFormat sdf = new SimpleDateFormat();
+//        JOptionPane.showMessageDialog(jFrame, sdf.format(today));
+
+        // get input information
+        String name = JOptionPane.showInputDialog(jFrame, "What is your name?");
+        JOptionPane.showMessageDialog(jFrame, "Hello, " + name);
     }
 }
