@@ -25,7 +25,29 @@ public class ExampleDialog {
 //        JOptionPane.showMessageDialog(jFrame, sdf.format(today));
 
         // get input information
+//        String name = JOptionPane.showInputDialog(jFrame, "What is your name?");
+//        JOptionPane.showMessageDialog(jFrame, "Hello, " + name);
+
+        // Input: full name, Output: initials
         String name = JOptionPane.showInputDialog(jFrame, "What is your name?");
-        JOptionPane.showMessageDialog(jFrame, "Hello, " + name);
+        System.out.println("Name (input): " + name);
+
+        // split string into list
+        List<String> names = new ArrayList<>(Arrays.asList(name.split(" ")));
+        System.out.println("Names: " + names);
+
+        // iterate over list to get initials
+        List<String> initials = new ArrayList<>();
+        for(String n : names){
+            String initial = String.valueOf(n.charAt(0));
+            initials.add(initial);
+        }
+        System.out.println("Initials: " + initials);
+
+        // display output
+        JOptionPane.showMessageDialog(jFrame, "Initials are: " + String.join("", initials).toUpperCase());
+
+        // clean up
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
