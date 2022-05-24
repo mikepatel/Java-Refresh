@@ -37,15 +37,23 @@ public class ExampleDialog {
         System.out.println("Names: " + names);
 
         // iterate over list to get initials
-        List<String> initials = new ArrayList<>();
+        List<Character> initials = new ArrayList<>();
         for(String n : names){
-            String initial = String.valueOf(n.charAt(0));
+            char initial = n.charAt(0);
             initials.add(initial);
         }
         System.out.println("Initials: " + initials);
 
+        // join characters to form a string
+        StringBuilder sb = new StringBuilder(initials.size());
+        for(Character c: initials){
+            sb.append(c);
+        }
+        String monogram = sb.toString().toUpperCase();
+        System.out.println("Mongram: " + monogram);
+
         // display output
-        JOptionPane.showMessageDialog(jFrame, "Initials are: " + String.join("", initials).toUpperCase());
+        JOptionPane.showMessageDialog(jFrame, "Initials are: " + monogram);
 
         // clean up
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
