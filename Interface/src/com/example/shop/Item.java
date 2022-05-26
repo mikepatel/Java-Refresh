@@ -22,9 +22,7 @@ public class Item implements Comparable{
         return id;
     }
 
-    public String getName(){
-        return name;
-    }
+    public String getName(){ return name; }
 
     public double getRetail(){
         return retail;
