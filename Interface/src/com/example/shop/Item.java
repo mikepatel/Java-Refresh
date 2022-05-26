@@ -9,12 +9,12 @@ public class Item implements Comparable{
 
     // Constructor
     Item(String idIn, String nameIn, String retailIn, String quanIn){
-        id = idIn;
-        name = nameIn;
-        retail = Double.parseDouble(retailIn);
-        quantity = Integer.parseInt(quanIn);
+        this.id = idIn;
+        this.name = nameIn;
+        this.retail = Double.parseDouble(retailIn);
+        this.quantity = Integer.parseInt(quanIn);
 
-        price = Math.floor(retail * 0.58);
+        this.price = Math.floor(this.retail * 0.58);
     }
 
     // Getters
