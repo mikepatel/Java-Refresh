@@ -7,6 +7,7 @@ public class Comic {
     float basePrice;
     float price;
 
+    // constructor
     Comic(String inTitle, String inIssueNumber, String inCondition, float inBasePrice){
         title = inTitle;
         issueNumber = inIssueNumber;
