@@ -24,16 +24,16 @@ public class ComicBooks {
         comics[2] = new Comic("X-Men", "101", "mint", 89.00f);
 
         // update prices
-        for(int i=0; i< comics.length; i++){
-            comics[i].setPrice((Float) quality.get(comics[i].condition));
+        for(Comic c: comics){
+            c.setPrice((Float) quality.get(c.condition));
         }
 
         // display output
-        for(int i=0; i<comics.length; i++){
-            System.out.println("Title: " + comics[i].title);
-            System.out.println("Issue: " + comics[i].issueNumber);
-            System.out.println("Condition: " + comics[i].condition);
-            System.out.println("Price: $" + comics[i].price);
+        for(Comic c: comics){
+            System.out.println("Title: " + c.title);
+            System.out.println("Issue: " + c.issueNumber);
+            System.out.println("Condition: " + c.condition);
+            System.out.println("Price: $" + c.price);
             System.out.println();
         }
     }
