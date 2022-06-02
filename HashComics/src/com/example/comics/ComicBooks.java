@@ -8,7 +8,7 @@ public class ComicBooks {
     // main
     public static void main(String[] args) {
         // create a HashMap
-        HashMap quality = new HashMap();
+        HashMap<String, Float> quality = new HashMap<>();
 
         // populate HashMap
         quality.put("mint", 3.00f);
@@ -19,14 +19,15 @@ public class ComicBooks {
         quality.put("poor", 0.25f);
 
         // set up collection
-        Comic[] comics = new Comic[3];
-        comics[0] = new Comic("SpiderMan", "1A", "near mint", 152.00f);
-        comics[1] = new Comic("Batman", "3C", "very fine", 66.00f);
-        comics[2] = new Comic("X-Men", "101", "mint", 89.00f);
+//        Comic[] comics = new Comic[3];
+        ArrayList<Comic> comics = new ArrayList<>();
+        comics.add(new Comic("SpiderMan", "1A", "near mint", 152.00f));
+        comics.add(new Comic("Batman", "3C", "very fine", 66.00f));
+        comics.add(new Comic("X-Men", "101", "mint", 89.00f));
 
         // update prices
         for(Comic c: comics){
-            c.setPrice((Float) quality.get(c.condition));
+            c.setPrice(quality.get(c.condition));
         }
 
         // display output
