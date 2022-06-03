@@ -28,7 +28,7 @@ public class SourceReader {
             boolean eof = false;
             while(!eof){
                 String line = buffer.readLine();
-                
+
                 if(line == null){
                     eof = true;
                 }
