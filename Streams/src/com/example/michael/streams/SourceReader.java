@@ -3,8 +3,6 @@ package com.example.michael.streams;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -23,9 +21,9 @@ public class SourceReader {
                 FileReader file = new FileReader(source.toFile());
 
                 // Associate a buffer filter with input stream
-                BufferedReader buffer = new BufferedReader(file);
-                
-                )  // declare resources inside parentheses
+                BufferedReader buffer = new BufferedReader(file)
+
+        )  // declare resources inside parentheses
         {
             boolean eof = false;
             while(!eof){
@@ -39,7 +37,7 @@ public class SourceReader {
             }
 
         } catch (IOException ioe) {
-            System.out.println("Error: " + ioe.toString());
+            System.out.println("Error: " + ioe);
         }
     }
 }
