@@ -10,8 +10,12 @@ public class SourceReader {
 
     // main
     public static void main(String[] args) {
+        // Get current path
+        String userFolder = System.getProperty("user.dir");
+//        System.out.println(userFolder);
+
         // Create file objects
-        String filename = "C:\\Users\\micha\\Desktop\\JavaProjects\\Java-Refresh\\Streams\\src\\com\\example\\michael\\streams\\data.txt";
+        String filename = userFolder + "\\src\\com\\example\\michael\\streams\\data.txt";
 
         // Create a file object
         Path source = Paths.get(filename);
