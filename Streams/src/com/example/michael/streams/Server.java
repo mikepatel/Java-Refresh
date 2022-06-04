@@ -1,7 +1,6 @@
 package com.example.michael.streams;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
@@ -16,41 +15,40 @@ public class Server {
             server = new ServerSocket(port);
             System.out.println("Server started");
             System.out.println("Waiting for a client to connect...");
+            System.out.println("===========================================");
 
         }
         catch (IOException ioe){
-            System.out.println(ioe);
+            System.out.println("Failed to start server");
         }
     }
 
     public void run(){
         try {
             Socket socket = server.accept();
-            DataInputStream input = new DataInputStream(socket.getInputStream());
+            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            System.out.println("===========================================");
-
+            // Read from client
             String line = "";
-            while (!line.equals("Over")){
-                try {
-                    line = input.readUTF();
-                    System.out.println(line);
-                }
-                catch (IOException ioe) {
-                    System.out.println(ioe);
-                }
+            while (line != null) {
+                line = input.readLine();
 
-                catch (NullPointerException npe){
-                    System.out.println(npe);
+                if(line == null){
+                    break;
+                }
+                else{
+                    System.out.println(line);
                 }
             }
 
+            // Close connections and streams
             System.out.println("Closing connection");
             input.close();
             socket.close();
+
         }
-        catch (IOException ioe){
-            System.out.println(ioe);
+        catch (IOException | NullPointerException ioe) {
+            System.out.println("Unable to read from client");
         }
     }
 

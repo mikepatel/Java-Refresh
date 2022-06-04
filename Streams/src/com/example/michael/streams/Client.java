@@ -4,45 +4,34 @@ import java.io.*;
 import java.net.Socket;
 
 public class Client {
-    private Socket socket;
-    private DataInputStream input;
-    private DataOutputStream output;
-
     // constructor
     public Client(String address, int port){
         try {
-            socket = new Socket(address, port);
+            // Create a socket connection
+            Socket socket = new Socket(address, port);
             System.out.println("Connected to " + address + ":" + port);
 
-            input = new DataInputStream(System.in);
-            output = new DataOutputStream(socket.getOutputStream());
-        }
-        catch (IOException ioe){
-            System.out.println(ioe);
-        }
+            // Create input and output streams
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+            BufferedWriter output = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-        System.out.println("===========================================");
+            System.out.println("===========================================");
 
-        String line = "";
-        while (!line.equals("Over")){
-            try {
+            // Read from System.in
+            String line = "";
+            while (!line.equals("Over")) {
                 line = input.readLine();
-                output.writeUTF(line);
-
+                output.write(line);
             }
-            catch (IOException ioe){
-                System.out.println(ioe);
-            }
-        }
 
-        // close connections
-        try {
+            // Close connections and streams
             input.close();
             output.close();
             socket.close();
+
         }
         catch (IOException ioe){
-            System.out.println(ioe);
+            System.out.println("Connection failed");
         }
     }
 
