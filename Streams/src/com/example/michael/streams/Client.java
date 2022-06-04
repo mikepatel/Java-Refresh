@@ -10,12 +10,11 @@ public class Client {
             // Create a socket connection
             Socket socket = new Socket(address, port);
             System.out.println("Connected to " + address + ":" + port);
+            System.out.println("===========================================");
 
             // Create input and output streams
             BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
             BufferedWriter output = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-
-            System.out.println("===========================================");
 
             // Read from System.in
             String line = "";
